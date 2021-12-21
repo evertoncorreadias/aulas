@@ -1,0 +1,7 @@
+print('<=====aluguel carro=====>')
+a=int(input('quantos dias com o carro?'))
+b=float(input('quantos quilometros rodados'))
+n=(60*a)
+m=(0.15*b)
+c=(m+n)
+print('seu custo total de aluguek é R${:.2f}'.format(c))

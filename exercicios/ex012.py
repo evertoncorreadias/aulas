@@ -1,0 +1,7 @@
+n1=int(input('qual a sua primeira nota'))
+n2=int(input('qual sua segunda nota'))
+s=(n1+n2)
+d=(s/2)
+print('sua media é{}'.format((n1+n2)/2))
+print('media{}'.format(d))
+#multiplicaçao(*) divisao(/) exponenciaçao (**) raiz quadrada(**(1/2)) raiz cubica(**(1/3))
