@@ -1,0 +1,103 @@
+import pygame
+de pygame.locals import *
+from sys import exit
+from random import randint
+import time
+
+pygame.init()
+
+altura =600
+largura =800
+
+cobra_x = altura//2
+cobra_y = largura//2
+
+maca_x = randint(20, 580)
+maca_y = randint(20, 780)
+
+relogio = pygame.time.Clock()
+
+velocidade = 10
+movimento_x = velocidade
+movimento_y = 0
+
+verde = (0, 255, 0)
+vermelho =(255, 0, 0)
+preto = (0, 0, 0)
+branco= (255, 255, 255)
+
+tela =pygame.display.set_mode((largura,altura))
+pygame.display.set_caption =('jogo')
+
+lista_cobra = []
+tamanho_inicial = 5
+
+def aumenta_cobra(lista_cobra):
+para xey na lista_cobra:
+pygame.draw.rect(tela,(verde), (xey[0], xey[1], 40, 40))
+
+while True:
+relogio.tick(30)
+for event in pygame.event.get():
+if event.type == QUIT:
+pygame.quit()
+exit()
+
+tela.fill(preto)
+
+
+
+cobra = pygame.draw.rect(tela, verde, (cobra_x, cobra_y, 40, 40))
+maca = pygame.draw.circle(tela,vermelho, (maca_x, maca_y), 25)
+
+if cobra_x > 780:
+	cobra_x = 10
+elif cobra_x < 10:
+	cobra_x = 780
+if cobra_y > 580:
+	cobra_y = 10
+elif cobra_y < 10:
+	cobra_y = 580
+
+
+if pygame.key.get_pressed()[K_w]:
+	movimento_y = -velocidade
+	movimento_x =0
+		
+if pygame.key.get_pressed()[K_s]:
+	movimento_y = velocidade
+	movimento_x = 0
+		
+if pygame.key.get_pressed()[K_a]:
+	movimento_x = -velocidade
+	movimento_y =0
+		
+if pygame.key.get_pressed()[K_d]:
+	movimento_x = velocidade
+	movimento_y = 0
+
+cobra_x = cobra_x + movimento_x
+cobra_y = cobra_y + movimento_y
+
+
+
+	
+if cobra.colliderect(maca):
+   	maca_x = randint(20, 780)
+   	maca_y = randint(20, 580)
+   	tamanho_inicial +=1
+	  
+	  
+cabeca = []
+cabeca.append(cobra_x)
+cabeca.append(cobra_y)
+lista_cobra.append(cabeca)
+
+aumenta_cobra(lista_cobra)
+
+
+if len(lista_cobra) > tamanho_inicial:
+	del lista_cobra[0]
+
+
+pygame.display.update()
