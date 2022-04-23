@@ -9,7 +9,8 @@ class Tela:
 					  [sg.Text('sexo')],
 					  [sg.Radio('masculino','sexos',key='masc'),sg.Radio('feminino','sexos',key='fem')],
 					  [sg.Button('enviar dados')],
-					  [sg.Output(size = (20, 15))]
+					  [sg.Output(size = (20, 15))],
+					  [sg.Text('cadastro')]
 		]
 		
 		self.janela = sg.Window('dados do usuario', layout)
